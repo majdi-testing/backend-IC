@@ -80,6 +80,13 @@ const adminOnly = (request, response, next) => {
   }
 };
 
+app.get('/', (_request, response) => 
+  response.json({ 
+    ok: true, 
+    service: 'islamic-circle-backend', 
+    status: 'running' 
+  })
+);
 app.get('/health', (_request, response) => response.json({ ok: true, service: 'islamic-circle-backend', time: now() }));
 app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'islamic-circle-backend', time: now() }));
 app.post('/api/admin/login', (request, response) => {
